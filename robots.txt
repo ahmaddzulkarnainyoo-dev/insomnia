@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: [ISI-url-deploy-final]/sitemap.xml
