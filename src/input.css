@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Neobrutalism base ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+  ::selection {
+    background: #111111;
+    color: #f6eedc;
+  }
+}
+
+/* ===== Komponen neobrutalism (ditulis dari nol) ===== */
+@layer components {
+  .nb-card {
+    @apply border-3 border-ink bg-cream shadow-hard;
+  }
+  .nb-btn {
+    @apply inline-flex items-center justify-center gap-2 border-3 border-ink bg-kraft px-5 py-3 font-display font-extrabold uppercase tracking-wide text-ink shadow-hard transition-transform duration-150;
+  }
+  .nb-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 #111111;
+  }
+  .nb-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 #111111;
+  }
+  .nb-btn-ghost {
+    @apply bg-cream;
+  }
+  .nb-btn-night {
+    @apply bg-night text-paper;
+  }
+  .nb-chip {
+    @apply inline-block border-3 border-ink bg-blush-light px-3 py-1 font-display text-xs font-bold uppercase tracking-widest shadow-hard-sm;
+  }
+  .nb-badge-stamp {
+    @apply inline-block border-3 border-ink bg-blood px-4 py-2 font-display text-sm font-extrabold uppercase tracking-widest text-cream shadow-hard;
+    transform: rotate(-3deg);
+  }
+  .section-label {
+    @apply nb-chip;
+    transform: rotate(-2deg);
+  }
+  .marquee-track {
+    @apply flex w-max items-center gap-8 whitespace-nowrap pr-8;
+    animation: marquee 28s linear infinite;
+  }
+  .halftone-band {
+    background-image: radial-gradient(rgba(17, 17, 17, 0.16) 1px, transparent 1.2px);
+    background-size: 14px 14px;
+  }
+}
+
+/* ===== Animasi vanilla: reveal / parallax / stamp ===== */
+
+/* Reveal hanya aktif bila JS ada (class .js dipasang oleh main.js).
+   Tanpa JS, konten tetap terlihat — sesuai rencana reduced-motion. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease var(--d, 0s), transform 0.55s ease var(--d, 0s);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+.js .stamp-target {
+  opacity: 0;
+}
+.js .stamp-target.is-in {
+  animation: stamp-pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+/* Fokus yang terlihat jelas (aksesibilitas + sinar matahari) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 3px;
+  box-shadow: 5px 5px 0 0 #d49b45;
+}
+
+/* Layar sentuh: andalkan efek tekan */
+@media (hover: none) {
+  .nb-btn:hover {
+    transform: none;
+    box-shadow: 5px 5px 0 0 #111111;
+  }
+}
+
+/* Wajib: hormati prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js .reveal,
+  .js .stamp-target {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  [data-parallax] {
+    transform: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    width: auto;
+    white-space: normal;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "insomnia-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page statis satu halaman untuk angkringan [ISI-nama] — Tailwind CSS v3 CLI, vanilla JS, tanpa backend. Foto sumber sudah kecil (JPEG, <300KB) sehingga tidak perlu dependensi optimasi gambar.",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
