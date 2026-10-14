@@ -45,6 +45,7 @@ Angkringan pinggir jalan di malam hari: lampu temaram, gerobak, kursi gunung, ge
 
 ### 4.2 Gaya acuan (dari repo basis)
 Zine / warkop brutalism: border hitam tebal, hard shadow (tanpa blur), tekstur halftone dot, marquee ticker, badge ala stempel/stiker, aksen warna kraft `#D49B45`. Font acuan: Syne, Space Grotesk, Plus Jakarta Sans.
+stylenya  neobrutalism
 
 ### 4.3 Aturan anti "AI slop"
 Dilarang:
@@ -244,4 +245,4 @@ Fitur pesan, pembayaran, atau menu yang bisa diedit lewat dashboard adalah proye
 | 2026-10-06 | Web statis, tanpa pemesanan/QRIS | Kebutuhan pemilik hanya untuk dipamerkan |
 | 2026-10-06 | Basis: `Tiyouw/vekok-landing` | Vibe warkop pinggir jalan, stack statis sederhana di Vercel |
 | 2026-10-06 | Penyesuaian visual via Gemini dengan foto asli | Agar hasil khas tempat ini, bukan template generik |
-| 2026-10-13 | Gerbang lisensi: repo basis `Tiyouw/vekok-landing` tidak punya file LICENSE (cek baca-saja 2026-10-13) → Jalur A: bangun dari nol, repo basis hanya referensi gaya/struktur, tidak ada kode yang disalin | Sesuai BLUEPRINT 5.2 langkah 3–4 |
+| _[ISI]_ | Hasil gerbang lisensi | |
